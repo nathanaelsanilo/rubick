@@ -1,7 +1,30 @@
 {
   "name": "rubick",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Simple object-to-object mapper for TypeScript",
+  "author": {
+    "name": "nathan"
+  },
+  "keywords": [
+    "object-mapper",
+    "mapper",
+    "dto",
+    "typescript",
+    "transform",
+    "mapping"
+  ],
+  "homepage": "https://github.com/nathanaelsanilo/rubick",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/nathanaelsanilo/rubick",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/nathanaelsanilo/rubick/issues"
+  },
+  "engines": {
+    "node": ">=16"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
