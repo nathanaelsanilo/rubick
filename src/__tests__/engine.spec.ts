@@ -2,7 +2,12 @@ import { describe, expect, it } from "vitest";
 import { ModelMapper } from "../core/engine";
 import type { MapperConfig } from "../types";
 
-type TargetObject = { userId: number; fullName: string; isActive: boolean };
+type TargetObject = {
+  userId: number;
+  fullName: string;
+  isActive: boolean;
+  birthDate: Date;
+};
 
 describe("ModelMapper", () => {
   it("should map properties from source to target", () => {
@@ -41,5 +46,32 @@ describe("ModelMapper", () => {
 
     // should not have source property
     expect((result as any).user_id).toBeUndefined();
+  });
+
+  it("should use transformer fn", () => {
+    const mapper = new ModelMapper();
+
+    const sourceObject = {
+      first_name: "John",
+      last_name: "Doe",
+      birth_date: "1990-01-01",
+      status_code: 1,
+    };
+
+    const config: MapperConfig<typeof sourceObject, TargetObject> = {
+      fullName: (source) => `${source.first_name} ${source.last_name}`,
+      birthDate: (source) => new Date(source.birth_date),
+      isActive: (source) => source.status_code === 1,
+    };
+
+    const result = mapper.map<typeof sourceObject, TargetObject>(
+      sourceObject,
+      config,
+    );
+
+    expect(result.fullName).toBe("John Doe");
+    expect(result.birthDate).toBeInstanceOf(Date);
+    expect(result.birthDate.getFullYear()).toBe(1990);
+    expect(result.isActive).toBe(true);
   });
 });
