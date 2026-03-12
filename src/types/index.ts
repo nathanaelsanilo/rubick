@@ -1,3 +1,5 @@
+export type AnyObject = Record<string, any>;
+
 export type TransformerFn<TSource, TTarget, K extends keyof TTarget> = (
   source: TSource,
 ) => TTarget[K];
