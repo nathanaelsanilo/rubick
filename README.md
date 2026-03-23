@@ -26,5 +26,5 @@ This project is guided by Google Gemini AI.
 
 ## Inspiration
 
-Model Mapper - https://mvnrepository.com/artifact/org.modelmapper/modelmapper
-Class Transformer - https://github.com/typestack/class-transformer/tree/develop
+- Model Mapper - https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+- Class Transformer - https://github.com/typestack/class-transformer/tree/develop
